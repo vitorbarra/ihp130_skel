@@ -35,7 +35,7 @@ wget https://www.klayout.org/downloads/source/klayout-0.29.0.tar.gz
 echo "Installing OpenVAF..."
 
 # Usar o arquivo local corretamente
-tar zxvpf openvaf_devel-x86_64-unknown-linux-gnu.tar.gz
+tar zxvpf openvaf_23_5_0_linux_amd64.tar
 
 # Verificar o nome da pasta extraída (ajuste conforme necessário)
 # Aqui assumimos que ele extraiu um executável ou pasta chamada `openvaf`
