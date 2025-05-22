@@ -33,9 +33,25 @@ wget -O openvaf.tar.gz https://datashare.tu-dresden.de/s/deELsiBGyitSS3o/downloa
 wget https://www.klayout.org/downloads/source/klayout-0.29.0.tar.gz
 
 echo "Installing OpenVAF..."
-tar zxvpf openvaf.tar.gz
-mv openvaf /usr/local/bin
-rm -f openvaf.tar.gz
+
+# Usar o arquivo local corretamente
+tar zxvpf openvaf_devel-x86_64-unknown-linux-gnu.tar.gz
+
+# Verificar o nome da pasta extraída (ajuste conforme necessário)
+# Aqui assumimos que ele extraiu um executável ou pasta chamada `openvaf`
+# Exemplo de uso prático:
+if [ -d "openvaf" ]; then
+    sudo mv openvaf /usr/local/bin
+elif [ -f "openvaf" ]; then
+    sudo mv openvaf /usr/local/bin/
+    sudo chmod +x /usr/local/bin/openvaf
+else
+    echo "⚠️  Arquivo ou diretório 'openvaf' não encontrado após extração."
+    exit 1
+fi
+
+echo "OpenVAF instalado com sucesso."
+
 
 echo "Installing NGSpice 44.2..."
 tar zxvpf ngspice-44.2.tar.gz
